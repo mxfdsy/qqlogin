@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Set;
 
 /**
+ * @author 平凡的世界
  * 检查其实否在登录，不是返回false,
  * 如果是但手机号码不存在 输出 ERROR: Not Exist
  * 如果是登录且手机号码存在且密码正确 输出 Login: OK
@@ -11,6 +12,7 @@ import java.util.Set;
  * Created by 平凡的世界 on 2018/4/11.
  */
 public class IsLogIn {
+    public  static String logo = "L";
     /**
      * @param string   检查其实否在登录
      * @param num      账号
@@ -18,7 +20,7 @@ public class IsLogIn {
      * @return false 他不是在登录
      */
     public static Boolean isLogIn(String string, String num, String password, HashMap map) {
-        if ("L".equals(string)) {
+        if (logo.equals(string)) {
             if (map.containsKey(num)) {
                 if (map.get(num).equals(password)) {
                     System.out.println("Login: OK");
