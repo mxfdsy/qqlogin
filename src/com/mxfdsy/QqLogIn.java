@@ -15,14 +15,33 @@ import java.util.HashMap;
  */
 public class QqLogIn {
     public static void main(String[] args) {
-        HashMap<String, String> map = new HashMap<>();
-        login("N 12345 cww123456",map);
-        System.out.println(map);
-        login("L 12345 cww1245",map);
+        imput(5,
+                "L 1234567890 myQQ@qq.com;" +
+                        "N 1234567890 myQQ@qq.com;" +
+                        "N 1234567890 myQQ@qq.com;" +
+                        "L 1234567890 myQQ@qq;" +
+                        "L 1234567890 myQQ@qq.com");
     }
 
-    private static void login(String s,HashMap map) {
+    /**
+     * @param a    你要输入的QQ号数量
+     * @param nums 你输入的要登录或者要注册的账号和密码
+     */
+    private static void imput(int a, String nums) {
+        HashMap<String, String> map = new HashMap<>();
+        String[] split = nums.split(";");
+        if (split.length == a) {
+            for (String st : split
+                    ) {
+                login(st, map);
+            }
+        } else {
+            System.out.println("请输入对对应数量的QQ账号");
+        }
 
+    }
+
+    private static void login(String s, HashMap map) {
         //检查输入的是否符合qq号格式
         if (IsLegal.isLegal(s)) {
             //拆分数据
